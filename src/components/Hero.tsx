@@ -13,13 +13,11 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto text-center space-y-8 animate-fade-in-up">
           <h1 className="text-6xl md:text-8xl font-bold italic leading-tight">
-            Não Basta Existir,{" "}
-            <span className="block mt-2">é Necessário</span>
-            <span className="block mt-2 text-gradient">Deixar uma Marca</span>
+            <span className="block text-gradient">LEAVE YOUR MARK</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-            Ideias ganham valor quando são postas em ação. É assim que se deixa uma marca no mundo.
+            Transformamos ideias em experiências que marcam
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">

@@ -32,13 +32,10 @@ const VideoGallery = () => {
       <div className="absolute inset-0 gradient-overlay" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center space-y-4 mb-16 animate-fade-in-up">
+        <div className="section-header text-center space-y-4 mb-16 animate-fade-in-up">
           <h2 className="text-5xl md:text-6xl font-bold">
-            Galeria de <span className="text-gradient">Vídeos</span>
+            Nossos <span className="text-gradient">Vídeos</span>
           </h2>
-          <p className="text-xl text-muted-foreground">
-            Momentos capturados em movimento
-          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">

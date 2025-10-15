@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Services";
+import Testimonials from "@/components/Testimonials";
 import VideoGallery from "@/components/VideoGallery";
 import PhotoGallery from "@/components/PhotoGallery";
 import CTA from "@/components/CTA";
@@ -21,6 +22,7 @@ const Index = () => {
         <div id="services">
           <Services />
         </div>
+        <Testimonials />
         <div id="gallery">
           <VideoGallery />
           <PhotoGallery />

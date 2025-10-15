@@ -9,7 +9,7 @@ const CTA = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
+        <div className="section-header max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
           <h2 className="text-5xl md:text-7xl font-bold leading-tight">
             Pronto para começar?{" "}
             <span className="block mt-2 text-gradient">

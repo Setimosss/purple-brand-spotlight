@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div className="space-y-4">
             <h3 className="text-2xl font-bold">
-              Leave <span className="text-gradient">Your Mark</span>
+              <span className="text-gradient">LEAVE YOUR MARK</span>
             </h3>
             <p className="text-muted-foreground">
               Criando experiências que deixam marca no mundo
@@ -36,6 +36,12 @@ const Footer = () => {
             <h4 className="font-bold text-lg">Contacto</h4>
             <div className="flex flex-col space-y-3">
               <a 
+                href="tel:+351912345678"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                +351 912 345 678
+              </a>
+              <a 
                 href="mailto:leaveyourmark.contacto@gmail.com"
                 className="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors"
               >
@@ -56,7 +62,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border/50 pt-8 text-center text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Leave Your Mark. Todos os direitos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} LEAVE YOUR MARK. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

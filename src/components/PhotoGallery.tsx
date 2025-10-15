@@ -39,13 +39,10 @@ const PhotoGallery = () => {
   return (
     <section className="py-32 relative">
       <div className="container mx-auto px-4">
-        <div className="text-center space-y-4 mb-16 animate-fade-in-up">
+        <div className="section-header text-center space-y-4 mb-16 animate-fade-in-up">
           <h2 className="text-5xl md:text-6xl font-bold">
-            Galeria de <span className="text-gradient">Fotos</span>
+            Nossa <span className="text-gradient">Galeria</span>
           </h2>
-          <p className="text-xl text-muted-foreground">
-            Momentos eternizados em imagens
-          </p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-7xl mx-auto">

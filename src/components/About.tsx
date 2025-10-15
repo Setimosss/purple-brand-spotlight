@@ -4,43 +4,31 @@ const About = () => {
       <div className="absolute inset-0 gradient-overlay" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
+        <div className="section-header text-center space-y-4 mb-16 animate-fade-in-up">
           <h2 className="text-5xl md:text-6xl font-bold">
-            A Tua Visão{" "}
-            <span className="text-gradient">Ganha Vida</span>{" "}
-            Connosco
+            Quem <span className="text-gradient">Somos</span>
           </h2>
-          
-          <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-            Na <span className="font-bold text-primary">Leave Your Mark</span>, acreditamos que não basta existir, 
-            é necessário deixar uma marca. Cada projeto é uma oportunidade para criar algo único, 
-            com identidade e propósito.
-          </p>
+        </div>
 
-          <div className="grid md:grid-cols-3 gap-8 pt-12">
-            {[
-              {
-                title: "Criatividade",
-                description: "Transformamos ideias em experiências únicas e memoráveis"
-              },
-              {
-                title: "Identidade",
-                description: "Cada projeto reflete a essência e propósito da tua marca"
-              },
-              {
-                title: "Impacto",
-                description: "Criamos trabalhos que deixam uma marca duradoura"
-              }
-            ].map((item, index) => (
-              <div 
-                key={index}
-                className="card-glass p-8 rounded-2xl hover-lift space-y-4"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <h3 className="text-2xl font-bold text-gradient">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
-              </div>
-            ))}
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6 animate-fade-in-up">
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              Na <span className="font-bold text-primary">LEAVE YOUR MARK</span> ajudamos marcas e artistas 
+              a conquistarem relevância no mercado digital. Somos uma agência de marketing especializada em 
+              estratégia, design e produção audiovisual, focada em criar experiências que geram impacto e resultados.
+            </p>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              Mais do que comunicar, fazemos a tua marca destacar-se, crescer e deixar a sua marca.
+            </p>
+          </div>
+
+          <div className="relative group animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <div className="absolute inset-0 bg-primary/20 rounded-2xl blur-2xl group-hover:blur-3xl transition-all" />
+            <img 
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200" 
+              alt="Leave Your Mark Team" 
+              className="relative rounded-2xl w-full h-auto shadow-2xl group-hover:scale-105 transition-transform duration-300"
+            />
           </div>
         </div>
       </div>
