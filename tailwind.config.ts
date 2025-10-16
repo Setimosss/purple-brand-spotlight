@@ -125,6 +125,10 @@ export default {
         "fade-in-up": "fade-in-up 0.6s ease-out",
         "scale-in": "scale-in 0.5s ease-out",
       },
+      fontFamily: {
+        sans: ["Montserrat", "sans-serif"],
+        serif: ["Times New Roman", "serif"],
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

@@ -30,26 +30,33 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-32 relative">
-      <div className="container mx-auto px-4">
+    <section className="py-32 relative overflow-hidden">
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="section-header text-center space-y-4 mb-16 animate-fade-in-up">
-          <h2 className="text-5xl md:text-6xl font-bold">
+          <h2 className="text-5xl md:text-6xl font-bold font-serif">
             Perguntas <span className="text-gradient">Frequentes</span>
           </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Tire suas dúvidas sobre nossos serviços e processos
+          </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-6">
             {faqs.map((faq, index) => (
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="card-glass rounded-2xl px-8 border-none"
+                className="card-glass rounded-2xl px-8 py-2 border border-primary/20 hover:border-primary/40 transition-all duration-300"
               >
-                <AccordionTrigger className="text-left text-lg md:text-xl font-semibold hover:text-primary transition-colors">
+                <AccordionTrigger className="text-left text-lg md:text-xl font-semibold hover:text-primary transition-colors py-6">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base md:text-lg pt-2">
+                <AccordionContent className="text-muted-foreground text-base md:text-lg pt-2 pb-6 leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

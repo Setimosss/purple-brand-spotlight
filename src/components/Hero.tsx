@@ -1,45 +1,67 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Instagram } from "lucide-react";
+import { ArrowRight, Instagram, Play } from "lucide-react";
+import heroVideo from "@/assets/hero-video.mp4";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-fluid">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+      {/* Animated background - similar to CTA but stronger */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-primary/30 rounded-full blur-3xl animate-pulse" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-5xl mx-auto text-center space-y-8 animate-fade-in-up">
-          <div className="space-y-4">
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold italic leading-tight">
-              <span className="block text-gradient">LEAVE YOUR MARK</span>
-            </h1>
-            <div className="h-1 w-32 mx-auto bg-gradient-to-r from-primary to-primary/50 rounded-full" />
-          </div>
-          
-          <p className="text-2xl md:text-3xl lg:text-4xl font-light text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Transformamos ideias em experiências que marcam
-          </p>
+        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+          {/* Left side - Content */}
+          <div className="space-y-8 animate-fade-in-up text-center lg:text-left">
+            <div className="space-y-4">
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold font-serif italic leading-tight">
+                <span className="block text-gradient">LEAVE YOUR MARK</span>
+              </h1>
+              <div className="h-1 w-32 mx-auto lg:mx-0 bg-gradient-to-r from-primary to-primary/50 rounded-full" />
+            </div>
+            
+            <p className="text-2xl md:text-3xl lg:text-4xl font-light text-muted-foreground leading-relaxed">
+              "Transformamos ideias em experiências que marcam"
+            </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-12">
-            <Button size="lg" className="group bg-primary hover:bg-primary/90 text-lg px-8 py-6 glow">
-              Começe Agora
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-primary/50 hover:bg-primary/10 text-lg px-8 py-6"
-              asChild
-            >
-              <a href="https://www.instagram.com/leaveyourmark.pt/" target="_blank" rel="noopener noreferrer">
-                <Instagram className="mr-2" />
-                Instagram
-              </a>
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center pt-8">
+              <Button size="lg" className="group bg-primary hover:bg-primary/90 text-lg px-8 py-6 glow">
+                Começe Agora
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-primary/50 hover:bg-primary/10 text-lg px-8 py-6"
+                asChild
+              >
+                <a href="https://www.instagram.com/leaveyourmark.pt/" target="_blank" rel="noopener noreferrer">
+                  <Instagram className="mr-2" />
+                  Instagram
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          {/* Right side - Video */}
+          <div className="relative group animate-fade-in-up">
+            <div className="relative aspect-[9/16] max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl">
+              <video 
+                className="w-full h-full object-cover"
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+              >
+                <source src={heroVideo} type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <Play className="w-16 h-16 text-white" />
+              </div>
+            </div>
+            {/* Glow effect behind video */}
+            <div className="absolute inset-0 bg-primary/20 blur-3xl -z-10 scale-110" />
           </div>
         </div>
       </div>

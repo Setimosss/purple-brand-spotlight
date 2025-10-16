@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo.jpeg";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,8 +31,8 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <a href="#home" className="text-xl md:text-2xl font-bold text-gradient">
-            LEAVE YOUR MARK
+          <a href="#home" className="flex items-center">
+            <img src={logo} alt="LEAVE YOUR MARK" className="h-12 w-auto" />
           </a>
 
           {/* Desktop Navigation */}
