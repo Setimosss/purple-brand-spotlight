@@ -1,29 +1,34 @@
 import { Play } from "lucide-react";
 import { useState } from "react";
+import nailsVideo from "@/assets/hero-video.mp4";
 
 const VideoGallery = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const videos = [
     {
-      title: "Dançar em Português",
-      thumbnail: "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=800&h=600&fit=crop",
-      videoUrl: "#"
+      title: "Dançar",
+      client: "Nails",
+      videoUrl: nailsVideo,
+      isLocal: true
     },
     {
       title: "Festas das Tunas",
       thumbnail: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=600&fit=crop",
-      videoUrl: "#"
+      videoUrl: "#",
+      isLocal: false
     },
     {
       title: "Torneio de Atletismo",
       thumbnail: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=600&fit=crop",
-      videoUrl: "#"
+      videoUrl: "#",
+      isLocal: false
     },
     {
       title: "Evento Cultural",
       thumbnail: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800&h=600&fit=crop",
-      videoUrl: "#"
+      videoUrl: "#",
+      isLocal: false
     }
   ];
 
@@ -47,11 +52,21 @@ const VideoGallery = () => {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <img
-                src={video.thumbnail}
-                alt={video.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
+              {video.isLocal ? (
+                <video
+                  src={video.videoUrl}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  muted
+                  loop
+                  playsInline
+                />
+              ) : (
+                <img
+                  src={video.thumbnail}
+                  alt={video.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              )}
               
               <div className={`absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent transition-opacity duration-300 ${
                 hoveredIndex === index ? 'opacity-90' : 'opacity-60'
@@ -64,11 +79,14 @@ const VideoGallery = () => {
                   <Play className="w-8 h-8 ml-1" fill="currentColor" />
                 </div>
                 
-                <h3 className={`text-2xl font-bold transition-all duration-300 ${
+                <div className={`text-center transition-all duration-300 ${
                   hoveredIndex === index ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
                 }`}>
-                  {video.title}
-                </h3>
+                  <h3 className="text-2xl font-bold">{video.title}</h3>
+                  {video.client && (
+                    <p className="text-lg text-muted-foreground mt-2">{video.client}</p>
+                  )}
+                </div>
               </div>
             </div>
           ))}
