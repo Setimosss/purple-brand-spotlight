@@ -1,4 +1,5 @@
 import { useState } from "react";
+import kenpoImage from "@/assets/kenpo.jpg";
 
 const PhotoGallery = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -6,7 +7,7 @@ const PhotoGallery = () => {
   const photos = [
     {
       title: "Álbum Indie Rock",
-      image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&h=800&fit=crop",
+      image: kenpoImage,
       category: "Música"
     },
     {

@@ -1,9 +1,24 @@
 import { Play } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import nailsVideo from "@/assets/nails-video.mp4";
 
 const VideoGallery = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [playingIndex, setPlayingIndex] = useState<number | null>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  const handleVideoClick = (index: number) => {
+    const video = videoRefs.current[index];
+    if (video) {
+      if (video.paused) {
+        video.play();
+        setPlayingIndex(index);
+      } else {
+        video.pause();
+        setPlayingIndex(null);
+      }
+    }
+  };
 
   const videos = [
     {
@@ -51,15 +66,17 @@ const VideoGallery = () => {
               style={{ aspectRatio: '9/16' }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
+              onClick={() => video.isLocal && handleVideoClick(index)}
             >
               {video.isLocal ? (
                 <video
+                  ref={(el) => (videoRefs.current[index] = el)}
                   src={video.videoUrl}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  autoPlay
                   muted
                   loop
                   playsInline
+                  controls={playingIndex === index}
                 />
               ) : (
                 <img
@@ -70,25 +87,27 @@ const VideoGallery = () => {
               )}
               
               <div className={`absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent transition-opacity duration-300 ${
-                hoveredIndex === index ? 'opacity-90' : 'opacity-60'
-              }`} />
+                hoveredIndex === index || playingIndex === index ? 'opacity-90' : 'opacity-60'
+              }`} style={{ pointerEvents: 'none' }} />
 
-              <div className="absolute inset-0 flex flex-col items-center justify-center space-y-4">
-                <div className={`w-20 h-20 rounded-full bg-primary/80 backdrop-blur-sm flex items-center justify-center transition-all duration-300 glow ${
-                  hoveredIndex === index ? 'scale-110' : 'scale-100'
-                }`}>
-                  <Play className="w-8 h-8 ml-1" fill="currentColor" />
-                </div>
+              {playingIndex !== index && (
+                <div className="absolute inset-0 flex flex-col items-center justify-center space-y-4" style={{ pointerEvents: 'none' }}>
+                  <div className={`w-20 h-20 rounded-full bg-primary/80 backdrop-blur-sm flex items-center justify-center transition-all duration-300 glow ${
+                    hoveredIndex === index ? 'scale-110' : 'scale-100'
+                  }`}>
+                    <Play className="w-8 h-8 ml-1" fill="currentColor" />
+                  </div>
                 
-                <div className={`text-center transition-all duration-300 ${
-                  hoveredIndex === index ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-                }`}>
-                  <h3 className="text-2xl font-bold">{video.title}</h3>
-                  {video.client && (
-                    <p className="text-lg text-muted-foreground mt-2">{video.client}</p>
-                  )}
+                  <div className={`text-center transition-all duration-300 ${
+                    hoveredIndex === index ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                  }`}>
+                    <h3 className="text-2xl font-bold">{video.title}</h3>
+                    {video.client && (
+                      <p className="text-lg text-muted-foreground mt-2">{video.client}</p>
+                    )}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           ))}
         </div>
