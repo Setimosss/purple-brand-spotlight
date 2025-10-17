@@ -1,3 +1,5 @@
+import quemImage from "@/assets/quem.jpeg";
+
 const About = () => {
   return (
     <section className="py-32 relative overflow-hidden">
@@ -25,8 +27,8 @@ const About = () => {
           <div className="relative group animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <div className="absolute inset-0 bg-primary/20 rounded-2xl blur-2xl group-hover:blur-3xl transition-all" />
             <img 
-              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200" 
-              alt="Leave Your Mark Team" 
+              src={quemImage} 
+              alt="Leave Your Mark" 
               className="relative rounded-2xl w-full h-auto shadow-2xl group-hover:scale-105 transition-transform duration-300"
             />
           </div>

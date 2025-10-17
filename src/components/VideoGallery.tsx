@@ -1,6 +1,6 @@
 import { Play } from "lucide-react";
 import { useState } from "react";
-import nailsVideo from "@/assets/hero-video.mp4";
+import nailsVideo from "@/assets/nails-video.mp4";
 
 const VideoGallery = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
