@@ -8,24 +8,20 @@ import {
 const FAQ = () => {
   const faqs = [
     {
-      question: "Quais serviços vocês oferecem?",
-      answer: "Oferecemos produção audiovisual, marketing digital, fotografia e design. Desde gravação e edição de vídeos até criação de conteúdo para redes sociais, sessões fotográficas e design de capas e flyers."
+      question: "O que nos torna únicos?",
+      answer: "Nós não criamos apenas projetos, criamos legados. Cada ideia é uma história que deixamos no mundo, com alma, paixão e a força de marcar para sempre."
     },
     {
-      question: "Quanto tempo demora um projeto?",
-      answer: "O tempo varia conforme o projeto. Vídeos simples podem ficar prontos em 1-2 dias, enquanto projetos mais complexos podem levar uma semana ou mais. Sempre priorizamos qualidade e rapidez na entrega."
+      question: "Como trabalhamos?",
+      answer: "Trabalhamos de forma colaborativa e estratégica, focando nas necessidades e objetivos de cada cliente. O nosso processo passa pela pesquisa, criatividade e planeamento, garantindo soluções personalizadas e impactantes. Da conceção à execução, acompanhamos cada etapa com rigor, sempre com o objetivo de superar expectativas e criar resultados duradouros, mantendo o contacto com o cliente ao longo do projeto."
     },
     {
-      question: "Como funciona o processo de orçamento?",
-      answer: "Entre em contato conosco pelo WhatsApp ou e-mail com detalhes do seu projeto. Analisamos suas necessidades e enviamos um orçamento personalizado em até 24 horas."
+      question: "Porque escolher-nos?",
+      answer: "Transformamos a sua visão em algo inesquecível. Com criatividade, propósito, profissionalismo e paixão, deixamos uma marca verdadeira e duradoura no mundo. Juntos, vamos além da simples criação, vamos impactar e deixar uma boa marca no mundo!"
     },
     {
-      question: "Vocês trabalham com que tipo de clientes?",
-      answer: "Trabalhamos com marcas, artistas, empresas e empreendedores que buscam destacar-se no mercado digital através de conteúdo de qualidade e estratégias eficazes."
-    },
-    {
-      question: "Posso solicitar alterações no trabalho final?",
-      answer: "Sim! Incluímos revisões no nosso processo para garantir que o resultado final esteja alinhado com suas expectativas e objetivos."
+      question: "O que podes esperar de nós?",
+      answer: "De nós, pode esperar excelência, inovação e comprometimento. Trabalhamos com foco em resultados, oferecendo soluções criativas e estratégicas que garantem um impacto duradouro. Cada projeto é tratado com atenção personalizada, buscando sempre superar as expectativas e entregar o melhor em cada detalhe."
     }
   ];
 
