@@ -1,11 +1,21 @@
 import { Play } from "lucide-react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import nailsVideo from "@/assets/nails-video.mp4";
 
 const VideoGallery = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const pauseTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const resetVideo = (index: number) => {
+    const video = videoRefs.current[index];
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+      setPlayingIndex(null);
+    }
+  };
 
   const handleVideoClick = (index: number) => {
     const video = videoRefs.current[index];
@@ -13,17 +23,44 @@ const VideoGallery = () => {
       if (video.paused) {
         video.play();
         setPlayingIndex(index);
+        if (pauseTimerRef.current) {
+          clearTimeout(pauseTimerRef.current);
+          pauseTimerRef.current = null;
+        }
       } else {
         video.pause();
         setPlayingIndex(null);
+        // Start 5 second timer to reset
+        pauseTimerRef.current = setTimeout(() => {
+          resetVideo(index);
+        }, 5000);
       }
     }
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (playingIndex !== null) {
+        resetVideo(playingIndex);
+        if (pauseTimerRef.current) {
+          clearTimeout(pauseTimerRef.current);
+          pauseTimerRef.current = null;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (pauseTimerRef.current) {
+        clearTimeout(pauseTimerRef.current);
+      }
+    };
+  }, [playingIndex]);
+
   const videos = [
     {
-      title: "Dançar",
-      client: "Nails",
+      title: "Nails - Dançar",
       videoUrl: nailsVideo,
       isLocal: true
     },
@@ -76,7 +113,7 @@ const VideoGallery = () => {
                   muted
                   loop
                   playsInline
-                  controls={playingIndex === index}
+                  preload="metadata"
                 />
               ) : (
                 <img
@@ -102,9 +139,6 @@ const VideoGallery = () => {
                     hoveredIndex === index ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
                   }`}>
                     <h3 className="text-2xl font-bold">{video.title}</h3>
-                    {video.client && (
-                      <p className="text-lg text-muted-foreground mt-2">{video.client}</p>
-                    )}
                   </div>
                 </div>
               )}

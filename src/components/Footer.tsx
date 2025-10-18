@@ -36,10 +36,10 @@ const Footer = () => {
             <h4 className="font-bold text-lg">Contacto</h4>
             <div className="flex flex-col space-y-3">
               <a 
-                href="tel:+351912345678"
+                href="tel:+351935442979"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
-                +351 912 345 678
+                +351 935 442 979
               </a>
               <a 
                 href="mailto:leaveyourmark.contacto@gmail.com"

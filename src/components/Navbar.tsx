@@ -20,7 +20,7 @@ const Navbar = () => {
     { label: "Sobre", href: "#about" },
     { label: "Serviços", href: "#services" },
     { label: "Galeria", href: "#gallery" },
-    { label: "Contacto", href: "https://wa.me/351912345678", external: true }
+    { label: "Contacto", href: "https://wa.me/351935442979", external: true }
   ];
 
   return (
