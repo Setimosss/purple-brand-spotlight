@@ -32,13 +32,16 @@ const VideoGallery = () => {
         }
       } else {
         video.pause();
-        setPlayingIndex(null);
         // Start 5 second timer to reset
         pauseTimerRef.current = setTimeout(() => {
           resetVideo(index);
         }, 5000);
       }
     }
+  };
+
+  const handleVideoEnded = (index: number) => {
+    resetVideo(index);
   };
 
   useEffect(() => {
@@ -56,17 +59,17 @@ const VideoGallery = () => {
       isLocal: true
     },
     {
-      title: "Vídeo 2",
+      title: "Tattoo",
       videoUrl: video2,
       isLocal: true
     },
     {
-      title: "Vídeo 3",
+      title: "João Carreira",
       videoUrl: video3,
       isLocal: true
     },
     {
-      title: "Vídeo 4",
+      title: "Kempo",
       videoUrl: video4,
       isLocal: true
     }
@@ -97,10 +100,9 @@ const VideoGallery = () => {
                 ref={(el) => (videoRefs.current[index] = el)}
                 src={video.videoUrl}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                muted
-                loop
                 playsInline
                 preload="metadata"
+                onEnded={() => handleVideoEnded(index)}
               />
               
               <div className={`absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent transition-opacity duration-300 ${
