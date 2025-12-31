@@ -66,9 +66,8 @@ const Services = () => {
               <h3 className="text-2xl font-bold text-primary">{service.title}</h3>
               <ul className="space-y-2">
                 {service.items.map((item, idx) => (
-                  <li key={idx} className="text-muted-foreground flex items-center justify-center">
-                    <span className="text-primary mr-2">•</span>
-                    {item}
+                  <li key={idx} className="text-muted-foreground text-center">
+                    <span className="text-primary">•</span> {item}
                   </li>
                 ))}
               </ul>
