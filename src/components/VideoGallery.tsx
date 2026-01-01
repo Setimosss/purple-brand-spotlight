@@ -97,7 +97,7 @@ const VideoGallery = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="section-header text-center space-y-4 mb-16 animate-fade-in-up">
           <h2 className="text-5xl md:text-6xl font-bold font-heading">
-            Nossos <span className="text-gradient">Vídeos</span>
+            Os Nossos <span className="text-gradient">Vídeos</span>
           </h2>
         </div>
 
