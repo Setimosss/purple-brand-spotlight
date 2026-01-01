@@ -1,6 +1,6 @@
 import { useState } from "react";
 import kenpoImage from "@/assets/kenpo.jpg";
-import porto1 from "@/assets/porto1.jpeg";
+import eComoE from "@/assets/e-como-e.jpeg";
 import amiKenha from "@/assets/ami-kenha.jpeg";
 import alb3 from "@/assets/alb3.jpg";
 import joao from "@/assets/joao.jpg";
@@ -16,8 +16,8 @@ const PhotoGallery = () => {
       category: "Desporto"
     },
     {
-      title: "Nesse Mundo",
-      image: porto1,
+      title: "É Como É",
+      image: eComoE,
       category: "Música"
     },
     {
@@ -47,7 +47,7 @@ const PhotoGallery = () => {
       <div className="container mx-auto px-4">
         <div className="section-header text-center space-y-4 mb-16 animate-fade-in-up">
           <h2 className="text-5xl md:text-6xl font-bold font-heading">
-            Nossa <span className="text-gradient">Galeria</span>
+            A Nossa <span className="text-gradient">Galeria</span>
           </h2>
         </div>
 
